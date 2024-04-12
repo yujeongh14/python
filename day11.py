@@ -157,3 +157,6 @@ def number(num): # 함수 정의
 
 result = number(12) # 함수 호출
 print(result)
+
+
+

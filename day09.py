@@ -37,6 +37,8 @@
 # abs() : 절대값
 # print(abs(10))
 # print(abs(-10))
+
+
 #
 # # divmod() : 몫과 나머지
 # print(divmod(10, 3)) # 결과는 튜플형식
