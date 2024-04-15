@@ -12,7 +12,7 @@
 
 # ex) import 방식
 import m # m이라는 모듈(파이썬 파일)을 불러온다
-
+''
 result1 = m.add(1, 2) # m모듈에 있는 add함수를 호출
 result2 = m.sub(2, 1) # m모듈에 있는 sub함수를 호출
 print(result1)
@@ -124,3 +124,21 @@ elapse = end - start # 차이
 elapse = elapse.total_seconds() # 초 단위로 변환해서 다시 저장
 print('총 합은 {}입니다.'.format(total))
 print('총 {}초가 소요되었습니다.'.format(elapse))
+###################################################
+# 사용자 함수 문제)
+# 두 개의 정수를 전달받아서 그 두 수의 몫과 나머지를 각각 반환하는 함수를 만들어 보자
+# 이 때 두개의 정수는 input을 이용해서 입력받는다
+# 반환값 return이 있도록 하고, 함수 이름과 매개변수이름 등은 자유롭게 한다
+# 함수 호출은 한 번만 한다.
+# [화면실행결과]
+# 첫번째 수를 입력하세요 : 5
+# 두번째 수를 입력하세요 : 2
+# 2 1
+
+# 전역변수
+num1 = int(input('첫번째 수를 입력하세요 : '))
+num2 = int(input('두번째 수를 입력하세요 : '))
+def calc(num1, num2): # 여기의 매개변수는 지역변수
+    return num1 // num2, num1 % num2
+quotient, remainder = calc(num1, num2)
+print(quotient, remainder)
