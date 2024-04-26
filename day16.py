@@ -213,3 +213,66 @@
 # friend2 = Friend('춘식이', '010-1111-2222')
 # friend1.show_info()
 # friend2.show_info()
+#
+# 응용 예제1)
+# class Person:
+#     population = 0 # 인구 수(클래스 변수)
+#
+#     def __init__(self, name): # 생성자
+#         self.name = name
+#         Person.population += 1 # 인구 수 1 증가
+#         print('{} is born.'.format(self.name))
+#
+#     def __del__(self): # 소멸자
+#         Person.population -= 1 # 인구 수 1 감소
+#         print('{} is dead.'.format(self.name))
+#
+#     @classmethod
+#     def get_population(cls): # 클래스 메서드 정의
+#         return cls.population # 인구 수 반환
+#
+# man = Person('James') # 인스턴스(객체) 생성
+# woman = Person('Emily') # 인스턴스(객체) 생성
+# print('전체 인구수 : {}명'.format(Person.get_population()))
+# del man # 인스턴스(객체) 삭제
+# print('전체 인구수 : {}명'.format(Person.get_population()))
+
+# 응용 예제2)
+# class Car: # 슈퍼 클래스(부모 클래스)
+#     max_oil = 50 # 최대 주유량(클래스 변수)
+#
+#     def __init__(self, oil):
+#         self.oil = oil # 인스턴스 변수
+#
+#     def add_oil(self, oil): # 인스턴스 메서드
+#         if oil <= 0: # 0 이하의 주유는 진행하지 않음
+#             return
+#         self.oil += oil
+#         if self.oil > Car.max_oil: # 최대 주유량보다 크다면(넘치면)
+#             self.oil = Car.max_oil # 현재 주유량을 최대 주유량으로 설정
+#
+#     def car_info(self):
+#         print('현재 주유상태: {}'.format(self.oil))
+#
+# class Hybrid(Car): # 서브 클래스(자식 클래스)
+#     max_battery = 30 # 최대 배터리 충전량(클래스 변수)
+#
+#     def __init__(self, oil, battery): # 생성자
+#         super().__init__(oil) # 부모의 생성자를 호출
+#         self.battery = battery # 인스턴스 변수
+#
+#     def charge(self, battery): # 인스턴스 메서드
+#         if battery <= 0:
+#             return
+#         self.battery += battery
+#         if self.battery > Hybrid.max_battery:
+#             self.battery = Hybrid.max_battery # 최대 충전량으로 설정
+#
+#     def hybrid_info(self): # 인스턴스 메서드
+#         super().car_info() # 부모의 메서드를 호출(주유량)
+#         print('현재 충전상태: {}'.format(self.battery))
+#
+# car = Hybrid(0, 0) # 인스턴스(객체) 생성
+# car.add_oil(100) # 부모의 메서드 호출(주유)
+# car.charge(50) # 배터리 충전
+# car.hybrid_info() # 현재 주유, 충전 상태 출력
