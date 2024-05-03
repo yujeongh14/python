@@ -164,3 +164,43 @@
 # # 이미지 데이터를 파일에 쓴다
 # with open(out_path, 'wb') as f:
 #     f.write(imgdata.content)
+
+# 페이지 안 이미지들을 한꺼번에 다운로드하기
+# (기존에 이미 있는 파일은 덮어쓰기 됨)
+# import requests
+# import bs4 import BeautifulSoup
+
+# 페이지 안 이미지들을 한꺼번에 다운로드하기
+# (기존에 이미 있는 파일은 덮어쓰기 됨)
+# import requests
+# from bs4 import BeautifulSoup
+# import urllib
+# from pathlib import Path
+# import time
+#
+# url = 'https://python.cyber.co.kr/pds/books/python2nd/test2.html'
+# response = requests.get(url)
+# html = response.text
+# soup = BeautifulSoup(html, 'html.parser')
+#
+# # 저장용 폴더
+# out_folder = Path('download_test1')
+# out_folder.mkdir(exist_ok=True)
+#
+# # img 태그를 검색해 링크를 구한다
+# for i in soup.find_all('img'):
+#     src = i.get('src')
+#
+#     # 절대 url
+#     image_url = urllib.parse.urljoin(url, src)
+#     imgdata = requests.get(image_url)
+#
+#     filename = image_url.split('/')[-1]
+#     out_path = out_folder.joinpath(filename)
+#
+#     # 이미지데이터를 파일에 쓴다
+#     with open(out_path,'wb') as f:
+#         f.write(imgdata.content)
+#
+#     # 한번 액세스 했으므로 1초 기다린다
+#     time.sleep(1)
